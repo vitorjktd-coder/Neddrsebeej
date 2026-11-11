@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#090c15" />
+  <title>Midnight Gravel — Rally Stage 01</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <canvas id="game" aria-label="Midnight Gravel rally game"></canvas>
+    <div class="scanlines" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Midnight Gravel home"><span class="brand-mark">M<span>G</span></span><span class="brand-copy">MIDNIGHT<br><b>GRAVEL</b></span></a>
+      <div class="stage-label"><span class="live-dot"></span><span>WORLD RALLY TOUR</span><i>/</i><b>STAGE 01</b></div>
+      <button id="soundButton" class="sound-button" aria-label="Toggle sound"><span class="sound-icon">♪</span><span>SOUND <b>ON</b></span></button>
+    </header>
+    <section class="hud" aria-live="polite">
+      <div class="hud-left">
+        <div class="telemetry"><span class="eyebrow">SPEED</span><div class="speed-row"><strong id="speed">000</strong><span>KM/H</span></div></div>
+        <div class="telemetry gear-box"><span class="eyebrow">GEAR</span><strong id="gear">N</strong></div>
+      </div>
+      <div class="hud-center"><span class="eyebrow">DISTANCE TO FINISH</span><div class="distance"><strong id="distance">4.2</strong><span>KM</span></div><div class="progress-track"><i id="progress"></i></div></div>
+      <div class="hud-right"><span class="eyebrow">STAGE TIME</span><strong id="clock">00:00.00</strong><div class="best-time">BEST <b>—:——.——</b></div></div>
+    </section>
+    <div class="race-callout" id="callout"><span class="callout-line"></span><span id="calloutText">NIGHT STAGE · GRAVEL</span><span class="callout-line"></span></div>
+    <section class="overlay" id="overlay">
+      <div class="intro-card" id="introCard">
+        <div class="card-kicker"><span>FIA WORLD RALLY TOUR</span><span>1996 · FINLAND</span></div>
+        <div class="title-wrap"><p class="title-overline">THE LAST STAGE OF THE NIGHT</p><h1>MIDNIGHT<br><em>GRAVEL</em></h1></div>
+        <p class="intro-copy">The forest is closing in. Four kilometers of loose dirt, blind crests, and no room for mistakes.</p>
+        <div class="stage-info"><div><span>STAGE</span><b>01 <i>—</i> BLACK PINE RUN</b></div><div><span>CONDITIONS</span><b><i class="moon">◐</i> NIGHT · DRY</b></div></div>
+        <button id="startButton" class="start-button"><span>START ENGINE</span><b>↗</b></button>
+        <div class="controls-hint"><span>↑</span> ACCELERATE <span>←</span><span>→</span> STEER <span>↓</span> BRAKE <small>OR WASD</small></div>
+      </div>
+      <div class="result-card hidden" id="resultCard"><div class="card-kicker"><span>STAGE COMPLETE</span><span>BLACK PINE RUN</span></div><p class="title-overline">YOU MADE IT THROUGH</p><h2 id="resultTitle">NIGHT<br><em>DRIVER</em></h2><div class="result-time"><span>YOUR TIME</span><strong id="finalTime">00:00.00</strong></div><button id="restartButton" class="start-button"><span>DRIVE AGAIN</span><b>↻</b></button></div>
+    </section>
+    <footer class="bottom-bar"><div class="road-name"><span class="compass">N</span><span>BLACK PINE RUN</span><i>FINLAND</i></div><div class="tape-label">VHS <b>•</b> 04:32 AM</div><div class="bottom-right"><span>GRAVEL</span><span class="surface-dot"></span><span id="surface">LOOSE</span></div></footer>
+    <div class="mobile-controls" aria-label="Driving controls"><button data-control="left">◀</button><button data-control="brake">▼</button><button data-control="right">▶</button><button data-control="accelerate">▲</button></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
