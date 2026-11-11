@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#071016" />
+  <title>Night Run — Rally Championship '96</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}
+  </script>
+</head>
+<body>
+  <main id="game">
+    <canvas id="scene" aria-label="3D night rally game"></canvas>
+    <div class="vignette"></div><div class="scanlines"></div><div class="grain"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">NR</span><span>NIGHT RUN <i>RALLY CHAMPIONSHIP '96</i></span></div>
+      <div class="race-label"><span class="live-dot"></span> SPECIAL STAGE 04 <b>·</b> BLACK PINE PASS</div>
+      <div class="top-right"><span class="weather">☾ &nbsp; CLEAR / 04°C</span><span class="session">REC <b>●</b></span></div>
+    </header>
+    <section class="hud" id="hud" aria-live="polite">
+      <div class="hud-left">
+        <div class="position"><span class="eyebrow">POSITION</span><strong id="position">04<span>/ 08</span></strong></div>
+        <div class="split"><span class="eyebrow">STAGE TIME</span><strong id="timer">00:00.00</strong><small id="splitText">BEST &nbsp; 02:18.42</small></div>
+      </div>
+      <div class="hud-center">
+        <div class="road-name">BLACK PINE PASS <span>—&nbsp; NIGHT STAGE</span></div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div><span class="progress-marker"></span></div>
+        <div class="progress-label"><span>START</span><span id="distance">2,400 M TO FINISH</span><span>FINISH</span></div>
+      </div>
+      <div class="hud-right">
+        <div class="gear"><span class="eyebrow">GEAR</span><strong id="gear">N</strong></div>
+        <div class="speed"><strong id="speed">000</strong><span>KM/H</span></div>
+        <div class="rpm"><div class="rpm-label"><span>ENGINE</span><b id="rpmText">IDLE</b></div><div class="rpm-bars" id="rpmBars"></div></div>
+      </div>
+    </section>
+    <div class="left-note" id="leftNote"><span class="arrow">↗</span><div><b>UP NEXT</b><strong>RIGHT 3</strong><small>KEEP TIGHT</small></div></div>
+    <div class="map-box"><div class="map-title">STAGE MAP <span>N</span></div><svg viewBox="0 0 90 104" aria-label="Stage map"><path class="map-track-shadow" d="M43 99 C38 87 56 81 53 69 S31 55 38 44 S60 30 48 21 S35 11 44 3"/><path class="map-track" d="M43 99 C38 87 56 81 53 69 S31 55 38 44 S60 30 48 21 S35 11 44 3"/><circle cx="43" cy="99" r="3" class="map-player"/></svg><span class="map-start">S</span><span class="map-finish">F</span></div>
+    <div class="bottom-hint" id="bottomHint"><span>▲</span> FULL THROTTLE &nbsp; <span>◀ ▶</span> STEER &nbsp; <span>▼</span> BRAKE <em>· &nbsp; SPACE HANDBRAKE</em></div>
+    <div class="damage" id="damage"><span>CAR CONDITION</span><div><i></i></div><b>100%</b></div>
+    <div class="toast" id="toast"></div>
+    <div class="overlay" id="overlay">
+      <div class="intro-card">
+        <div class="intro-kicker"><span class="live-dot"></span> WORLD RALLY SERIES <span>1996</span></div>
+        <div class="title-wrap"><h1>NIGHT<br><i>RUN</i></h1><div class="title-stamp">STAGE<br><b>04</b></div></div>
+        <p class="subtitle">BLACK PINE PASS <span>·</span> FINLAND</p>
+        <div class="card-rule"></div>
+        <div class="briefing"><span class="eyebrow">DRIVER BRIEFING</span><p>Two thousand four hundred metres of gravel and darkness. Keep it between the trees. <b>Bring it home.</b></p></div>
+        <div class="controls"><div><kbd>W</kbd><kbd>↑</kbd><span>ACCELERATE</span></div><div><kbd>A</kbd><kbd>D</kbd><span>STEER</span></div><div><kbd>S</kbd><kbd>↓</kbd><span>BRAKE</span></div><div><kbd>SPACE</kbd><span>HANDBRAKE</span></div></div>
+        <button id="startButton" class="start-button"><span>START STAGE</span><b>→</b></button>
+        <div class="card-footer"><span>PEUGEOT 306 MAXI · #07</span><span>PRESS ENTER TO START</span></div>
+      </div>
+      <div class="overlay-caption"><span>01 — 04</span><div></div><span>THE MIDNIGHT STAGES</span></div>
+    </div>
+    <div class="result" id="result"><div class="result-card"><span class="intro-kicker">STAGE COMPLETE · BLACK PINE PASS</span><h2 id="resultTitle">STAGE<br><i>FINISHED</i></h2><div class="result-time"><span>YOUR TIME</span><b id="finalTime">00:00.00</b></div><p id="resultCopy">A clean run through the pines.</p><button id="restartButton" class="start-button"><span>DRIVE AGAIN</span><b>↻</b></button></div></div>
+    <div id="flash"></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
